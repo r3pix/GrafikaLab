@@ -1,12 +1,12 @@
 #include "Point2D.h"
 #include "PrimitiveRenderer.h"
 
-void Point2D::SetX(float x)
+void Point2D::SetX(int x)
 {
 	this->x = x;
 }
 
-void Point2D::SetY(float y)
+void Point2D::SetY(int y)
 {
 	this->y = y;
 }
@@ -26,7 +26,7 @@ void Point2D::DrawPoint(sf::RenderWindow* target)
 	PrimitiveRenderer::drawPoint(target, this->GetX(), this->GetY());
 }
 
-Point2D::Point2D(float x, float y)
+Point2D::Point2D(int x, int y)
 {
 	this->x = x;
 	this->y = y;

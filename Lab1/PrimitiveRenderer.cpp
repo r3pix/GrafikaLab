@@ -34,7 +34,7 @@ void PrimitiveRenderer::drawTringle(sf::RenderWindow* target)
 	target->draw(triangle);
 }
 
-void PrimitiveRenderer::drawPoint(sf::RenderWindow* target, float x, float y)
+void PrimitiveRenderer::drawPoint(sf::RenderWindow* target, int x, int y)
 {
 	sf::RectangleShape pixel(sf::Vector2f(1, 1));
 	pixel.setFillColor(sf::Color::Blue);
@@ -50,7 +50,7 @@ void PrimitiveRenderer::drawCustomLine(sf::RenderWindow* target, std::vector<Lin
 	}
 }
 
-void PrimitiveRenderer::drawCustomCircle(sf::RenderWindow* target, float x0, float y0, float r)
+void PrimitiveRenderer::drawCustomCircle(sf::RenderWindow* target, int x0, int y0, int r)
 {
 	float a, step;
 	int x, y;
@@ -73,7 +73,7 @@ void PrimitiveRenderer::drawCustomCircle(sf::RenderWindow* target, float x0, flo
 	PrimitiveRenderer::drawPoint(target, x0, y0-r);
 }
 
-void PrimitiveRenderer::drawCustomElipse(sf::RenderWindow* target, float x0, float y0, float rx, float ry)
+void PrimitiveRenderer::drawCustomElipse(sf::RenderWindow* target, int x0, int y0, int rx, int ry)
 {
 	float a, step;
 	int x, y;
@@ -95,7 +95,7 @@ void PrimitiveRenderer::drawCustomElipse(sf::RenderWindow* target, float x0, flo
 
 
 
-void PrimitiveRenderer::drawLine(sf::RenderWindow* target, float x0, float y0, float x1, float y1)
+void PrimitiveRenderer::drawLine(sf::RenderWindow* target, int x0, int y0, int x1, int y1)
 {
 	float deltay, deltax, m;
 	deltay = y1 - y0;
