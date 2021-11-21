@@ -110,6 +110,13 @@ void PrimitiveRenderer::drawLine(sf::RenderWindow *target, int x0, int y0, int x
 	float yy = y0;
 	float xx = x0;
 	m = deltay / deltax;
+	if (x0 > x1) {
+		float tmp = x0;
+		x0 = x1;
+		x1 = tmp;
+		tmp = y0;
+		y0 = y1;
+		y1 = tmp;
 
 	if (m > 1)
 	{
