@@ -79,12 +79,12 @@ void PrimitiveRenderer::drawTringle(sf::RenderWindow* target, sf::Vector2f pos, 
 
 void PrimitiveRenderer::drawPoint(sf::Image& target, int x, int y)
 {
-	img.setPixel(x, y, sf::Color::Blue);
+	target.setPixel(x, y, sf::Color::Blue);
 }
 
 void PrimitiveRenderer::drawPoint(sf::Image &target, int x, int y, sf::Color color)
 {
-	img.setPixel(x, y, color);
+	target.setPixel(x, y, color);
 }
 
 

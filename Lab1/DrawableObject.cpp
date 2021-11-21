@@ -52,7 +52,7 @@ void DrawableObject::drawLine(sf::RenderWindow* target, int x0, int y0, int x1, 
 	}
 
 }
-void DrawableObject::fillColor(sf::Image& img, sf::Color& colorI, sf::Color colorIn, int x, int y)
+void DrawableObject::fillColor(sf::Image& img, sf::Color colorI, sf::Color colorIn, int x, int y)
 {
 	if (img.getPixel(x, y) == colorI) return;
 	if (img.getPixel(x, y) == colorIn) return;

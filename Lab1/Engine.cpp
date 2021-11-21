@@ -5,6 +5,8 @@
 #include "LineSegment.h"
 #include <vector>
 
+#include "PrimitiveCircle.h"
+
 Engine::Engine(std::string title, int width, int height)
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(width,height),title);
@@ -68,8 +70,10 @@ void Engine::run()
 			//prim.drawCustomCircle(this->window, 600, 200, 50);
 			
 
-
-			prim.drawRectangleUnfilled(this->window,sf::Vector2f(200,200));
+			PrimitiveCircle circle(600, 200, 50, sf::Color::Green);
+			circle.draw(this->window, sf::Color::White);
+			//circle.draw(this->window);
+			//prim.drawRectangleUnfilled(this->window,sf::Vector2f(200,200));
 			//PrimitiveRenderer::drawSquare(this->window);
 			//PrimitiveRenderer::drawCircle(this->window);
 			//PrimitiveRenderer::drawTringle(this->window);
