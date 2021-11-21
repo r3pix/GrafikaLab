@@ -23,7 +23,13 @@ float Point2D::GetY()
 
 void Point2D::DrawPoint(sf::RenderWindow* target)
 {
-	PrimitiveRenderer::drawPoint(target, this->GetX(), this->GetY());
+	img.create(target->getSize().x, target->getSize().y, sf::Color::Transparent);
+	PrimitiveRenderer prim;
+	prim.drawPoint(img, this->GetX(), this->GetY());
+	txt.loadFromImage(img);
+	arr.setTexture(txt);
+	arr.setPosition(sf::Vector2f(0, 0));
+	target->draw(arr);
 }
 
 Point2D::Point2D(int x, int y)

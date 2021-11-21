@@ -43,8 +43,11 @@ Point2D point(100, 100);
 LineSegment line(100,100,200,200);
 LineSegment line1(200, 200, 400, 500);
 LineSegment line2(400, 500, 700, 100);
+LineSegment line3(100, 100,700,100);
 std::vector<LineSegment> lines = { line, line1, line2 };
 
+
+std::vector<LineSegment> figure = { line, line1, line2, line3 };
 
 
 
@@ -52,6 +55,7 @@ void Engine::run()
 {
 	try
 	{
+		PrimitiveRenderer prim;
 		while (this->window->isOpen())
 		{
 			while(this->window->pollEvent(event))
@@ -61,19 +65,25 @@ void Engine::run()
 			}
 
 			clear();
-			//PrimitiveRenderer::drawRectangle(this->window);
+			//prim.drawCustomCircle(this->window, 600, 200, 50);
+			
+
+
+			prim.drawRectangleUnfilled(this->window,sf::Vector2f(200,200));
 			//PrimitiveRenderer::drawSquare(this->window);
 			//PrimitiveRenderer::drawCircle(this->window);
 			//PrimitiveRenderer::drawTringle(this->window);
 			//PrimitiveRenderer::drawLine(this->window,100,50,150,500);
-			//PrimitiveRenderer::drawLine(this->window, 200, 50, 1100, 200);
+			//prim.drawLine(this->window, 200, 50, 1100, 200);
 			
 			//point.DrawPoint(this->window);
 			//line.DrawLine(this->window);
 
-			//PrimitiveRenderer::drawCustomLine(this->window, lines);
-			PrimitiveRenderer::drawCustomCircle(this->window, 600, 200, 50);
-			PrimitiveRenderer::drawCustomElipse(this->window, 900, 200, 150, 70);
+			//prim.drawCustomLine(this->window, lines);
+			//prim.drawCustomFigure(this->window,figure);
+			//prim.drawCustomFigureWithFill(this->window, figure);
+			//prim.drawCustomCircle(this->window, 600, 200, 50);
+			//prim.drawCustomElipse(this->window, 900, 200, 150, 70);
 
 
 			this->window->display();

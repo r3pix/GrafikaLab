@@ -37,5 +37,6 @@ LineSegment::LineSegment()
 
 void LineSegment::DrawLine(sf::RenderWindow* target)
 {
-	PrimitiveRenderer::drawLine(target,this->A.GetX(), this->A.GetY(), this->B.GetX(), this->B.GetY());
+	PrimitiveRenderer prim;
+	prim.drawLine(target,this->A.GetX(), this->A.GetY(), this->B.GetX(), this->B.GetY());
 }

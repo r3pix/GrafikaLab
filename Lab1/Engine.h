@@ -15,7 +15,6 @@ public:
 	Engine(std::string title, int width, int height);
 	Engine(std::string title, int width, int height, int mode);
 	~Engine();
-	void PrimitiveRenderer();
 	void SetFps(int fps);
 	void run();
 	void clear();
