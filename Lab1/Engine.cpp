@@ -90,12 +90,15 @@ void Engine::run()
 			//prim.drawCustomFigureWithFill(this->window, figure);
 			//prim.drawCustomCircle(this->window, 600, 200, 50);
 			//prim.drawCustomElipse(this->window, 900, 200, 150, 70);
-			PrimitiveTriangle triangle(200, 200, 300, 300, sf::Color::White);
+			PrimitiveTriangle triangle(600, 250, 700, 500, sf::Color::White);
 			PrimitiveSquere squere(50, 50, 300, 100, sf::Color::White);
 			PrimitiveEllipse elip(50, 100, sf::Color::White);
 			elip.draw(this->window,sf::Color::Red);
-			triangle.draw(this->window,sf::Color::Blue);
-			squere.draw(this->window, sf::Color::Green);
+			triangle.rotate(50);
+			triangle.draw(this->window);
+			squere.rotate(10);	
+			squere.draw(this->window);
+	
 			this->window->display();
 
 		}

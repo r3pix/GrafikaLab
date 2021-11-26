@@ -4,19 +4,23 @@ PrimitiveTriangle::PrimitiveTriangle(int x, int y, int x1, int y1) {
 	this->y0 = y;
 	this->x1 = x1;
 	this->y1 = y1;
+	this->y2 = y;
+	this->x2 = x1;
 }
 PrimitiveTriangle::PrimitiveTriangle(int x, int y, int x1, int y1, sf::Color color) {
 	this->x0 = x;
 	this->y0 = y;
 	this->x1 = x1;
 	this->y1 = y1;
+	this->y2 = y;
+	this->x2 = x1;
 	this->color = color;
 }
 void PrimitiveTriangle::draw(sf::RenderWindow* target) {
 
 	img.create(target->getSize().x, target->getSize().y, sf::Color::Transparent);
-	drawLine(img, x0, y0, x1, y0);
-	drawLine(img, x1, y0, x1, y1);
+	drawLine(img, x0, y0, x2, y2);
+	drawLine(img, x2, y2, x1, y1);
 	drawLine(img, x1, y1, x0, y0);
 	txt.loadFromImage(img);
 	arr.setTexture(txt);
@@ -25,12 +29,12 @@ void PrimitiveTriangle::draw(sf::RenderWindow* target) {
 }
 void PrimitiveTriangle::draw(sf::RenderWindow* target, sf::Color color) {
 	img.create(target->getSize().x, target->getSize().y, sf::Color::Transparent);
-	drawLine(img, x0, y0, x1, y0);
-	drawLine(img, x1, y0, x1, y1);
+	drawLine(img, x0, y0, x2, y2);
+	drawLine(img, x2, y2, x1, y1);
 	drawLine(img, x1, y1, x0, y0);
-	float c = (x0 + x1 +x1) / 3;
+	float c = (x0 + x1 + x1) / 3;
 	float d = (y0 + y0 + y1) / 3;
-	fillColor(img, this->color,color ,c,d);
+	fillColor(img, this->color, color, c, d);
 	txt.loadFromImage(img);
 	arr.setTexture(txt);
 	arr.setPosition(sf::Vector2f(0, 0));
@@ -42,7 +46,13 @@ void PrimitiveTriangle::translate(sf::Vector2f translate)
 }
 void PrimitiveTriangle::rotate(float rotation)
 {
-
+	rotation = rotation * (M_PI / 180);
+	x0 = x0 * cos(rotation) - y0 * sin(rotation);
+	y0 = x0 * sin(rotation) + y0 * cos(rotation);
+	x1 = x1 * cos(rotation) - y1 * sin(rotation);
+	y1 = x1 * sin(rotation) + y1 * cos(rotation);
+	x2 = x2 * cos(rotation) - y2 * sin(rotation);
+	y2 = x2 * sin(rotation) + y2 * cos(rotation);
 }
 void PrimitiveTriangle::scale(float k)
 {

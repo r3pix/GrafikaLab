@@ -4,7 +4,7 @@
 class PrimitiveTriangle:public ShapeObject
 {
 private:
-	int x0, y0, x1, y1;
+	int x0, y0, x1, y1, x2, y2;
 public:
 	PrimitiveTriangle(int x, int y, int x1, int y1);
 	PrimitiveTriangle(int x, int y, int x1, int y1, sf::Color color);
