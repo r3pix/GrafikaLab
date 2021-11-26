@@ -4,9 +4,10 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include "LineSegment.h"
 #include <vector>
-
+#include "PrimitiveSquere.h"
 #include "PrimitiveCircle.h"
-
+#include "PrimitiveEllipse.h"
+#include "PrimitiveTriangle.h"
 Engine::Engine(std::string title, int width, int height)
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(width,height),title);
@@ -40,7 +41,7 @@ void Engine::clear()
 	this->window->clear();
 	this->window->draw(this->background);
 }
-
+/*
 Point2D point(100, 100);
 LineSegment line(100,100,200,200);
 LineSegment line1(200, 200, 400, 500);
@@ -50,11 +51,12 @@ std::vector<LineSegment> lines = { line, line1, line2 };
 
 
 std::vector<LineSegment> figure = { line, line1, line2, line3 };
-
-
+*/
 
 void Engine::run()
 {
+	PrimitiveSquere squere(50, 50, 300, 100, sf::Color::White);
+
 	try
 	{
 		PrimitiveRenderer prim;
@@ -88,8 +90,12 @@ void Engine::run()
 			//prim.drawCustomFigureWithFill(this->window, figure);
 			//prim.drawCustomCircle(this->window, 600, 200, 50);
 			//prim.drawCustomElipse(this->window, 900, 200, 150, 70);
-
-
+			PrimitiveTriangle triangle(200, 200, 300, 300, sf::Color::White);
+			PrimitiveSquere squere(50, 50, 300, 100, sf::Color::White);
+			PrimitiveEllipse elip(50, 100, sf::Color::White);
+			elip.draw(this->window,sf::Color::Red);
+			triangle.draw(this->window,sf::Color::Blue);
+			squere.draw(this->window, sf::Color::Green);
 			this->window->display();
 
 		}
