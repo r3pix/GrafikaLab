@@ -40,9 +40,8 @@ void PrimitiveTriangle::draw(sf::RenderWindow* target, sf::Color color) {
 	arr.setPosition(sf::Vector2f(0, 0));
 	target->draw(arr);
 }
-void PrimitiveTriangle::translate(sf::Vector2f translate)
+void PrimitiveTriangle::translate(int x, int y)
 {
-	position = sf::Vector2f(x0 + position.x, y0 + position.y), sf::Vector2f(x1 + position.x, y1 + position.y);
 }
 void PrimitiveTriangle::rotate(float rotation)
 {

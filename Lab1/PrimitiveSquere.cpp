@@ -29,10 +29,11 @@ PrimitiveSquere::PrimitiveSquere(int x, int y, int x1, int y1, sf::Color color){
 void PrimitiveSquere::draw(sf::RenderWindow* target) {
 
 	img.create(target->getSize().x, target->getSize().y, sf::Color::Transparent);
-	drawLine(img, x0, y0, x2, y2);
-	drawLine(img, x2, y2, x1, y1);
-	drawLine(img, x1, y1, x3, y3);
-	drawLine(img, x3, y3, x0, y0);
+	drawLine(img, position.x + x0, position.y + y0, position.x + x2, position.y + y2);
+	drawLine(img, position.x + x2, position.y + y2, position.x + x1, position.y + y1);
+	drawLine(img, position.x + x1, position.y + y1, position.x + x3, position.y + y3);
+	drawLine(img, position.x + x3, position.y + y3, position.x + x0, position.y + y0);
+	std::cout << position.x << " dsds" << position.y << std::endl;
 	txt.loadFromImage(img);
 	arr.setTexture(txt);
 	arr.setPosition(sf::Vector2f(0, 0));
@@ -40,19 +41,19 @@ void PrimitiveSquere::draw(sf::RenderWindow* target) {
 }
 void PrimitiveSquere::draw(sf::RenderWindow* target, sf::Color color) {
 	img.create(target->getSize().x, target->getSize().y, sf::Color::Transparent);
-	drawLine(img, x0, y0, x2, y2);
-	drawLine(img, x2, y2, x1, y1);
-	drawLine(img, x1, y1, x3, y3);
-	drawLine(img, x3, y3, x0, y0);
+	drawLine(img, position.x + x0, position.y + y0, position.x + x2, position.y + y2);
+	drawLine(img, position.x + x2, position.y + y2, position.x + x1, position.y + y1);
+	drawLine(img, position.x + x1, position.y + y1, position.x + x3, position.y + y3);
+	drawLine(img, position.x + x3, position.y + y3, position.x + x0, position.y + y0);
 	fillColor(img, this->color,color,(x0+x1)/2,(y0+y1)/2);
 	txt.loadFromImage(img);
 	arr.setTexture(txt);
 	arr.setPosition(sf::Vector2f(0, 0));
 	target->draw(arr);
 }
-void PrimitiveSquere::translate(sf::Vector2f translate)
+void PrimitiveSquere::translate(int x, int y)
 {
-	position = sf::Vector2f(x0 + position.x, y0 + position.y), sf::Vector2f(x1 + position.x, y1 + position.y);
+	position = sf::Vector2f(x + position.x, y + position.y);
 }
 void PrimitiveSquere::rotate(float rotation)
 {

@@ -74,9 +74,8 @@ void PrimitiveEllipse::draw(sf::RenderWindow* target)
 	arr.setPosition(sf::Vector2f(0, 0));
 	target->draw(arr);
 }
-void PrimitiveEllipse::translate(sf::Vector2f translate)
+void PrimitiveEllipse::translate(int x, int y)
 {
-	position = sf::Vector2f(position.x + translate.x, position.y + translate.y);
 }
 
 void PrimitiveEllipse::rotate(float rotation)

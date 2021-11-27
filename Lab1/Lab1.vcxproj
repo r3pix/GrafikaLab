@@ -151,6 +151,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PrimitiveCircle.cpp" />
     <ClCompile Include="PrimitiveEllipse.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="LineSegment.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PrimitiveCircle.h" />
     <ClInclude Include="PrimitiveEllipse.h" />

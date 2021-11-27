@@ -10,7 +10,7 @@ public:
 	PrimitiveCircle(int x, int y, int r, sf::Color color);
 	void draw(sf::RenderWindow* target) override;
 	void draw(sf::RenderWindow* target, sf::Color color);
-	void translate(sf::Vector2f translate) override;
+	void translate(int x,int y) override;
 	void rotate(float rotation) override;
 	void scale(float k) override;
 };

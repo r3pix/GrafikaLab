@@ -8,6 +8,7 @@
 #include "PrimitiveCircle.h"
 #include "PrimitiveEllipse.h"
 #include "PrimitiveTriangle.h"
+#include "Player.h"
 Engine::Engine(std::string title, int width, int height)
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(width,height),title);
@@ -55,8 +56,8 @@ std::vector<LineSegment> figure = { line, line1, line2, line3 };
 
 void Engine::run()
 {
-	PrimitiveSquere squere(50, 50, 300, 100, sf::Color::White);
-
+	
+	Player player(100, 100, 300, 300, sf::Color::White);
 	try
 	{
 		PrimitiveRenderer prim;
@@ -72,8 +73,8 @@ void Engine::run()
 			//prim.drawCustomCircle(this->window, 600, 200, 50);
 			
 
-			PrimitiveCircle circle(600, 200, 50, sf::Color::Green);
-			circle.draw(this->window, sf::Color::White);
+			/*PrimitiveCircle circle(600, 200, 50, sf::Color::Green);
+			circle.draw(this->window, sf::Color::White);*/
 			//circle.draw(this->window);
 			//prim.drawRectangleUnfilled(this->window,sf::Vector2f(200,200));
 			//PrimitiveRenderer::drawSquare(this->window);
@@ -90,15 +91,18 @@ void Engine::run()
 			//prim.drawCustomFigureWithFill(this->window, figure);
 			//prim.drawCustomCircle(this->window, 600, 200, 50);
 			//prim.drawCustomElipse(this->window, 900, 200, 150, 70);
+		/*	PrimitiveSquere squere(50, 50, 300, 100, sf::Color::White);
 			PrimitiveTriangle triangle(600, 250, 700, 500, sf::Color::White);
-			PrimitiveSquere squere(50, 50, 300, 100, sf::Color::White);
 			PrimitiveEllipse elip(50, 100, sf::Color::White);
 			elip.draw(this->window,sf::Color::Red);
 			triangle.rotate(50);
 			triangle.draw(this->window);
 			squere.rotate(10);	
-			squere.draw(this->window);
-	
+			squere.translate(100, 100);
+			squere.draw(this->window);*/
+			
+			player.update();
+			player.draw(window);
 			this->window->display();
 
 		}
