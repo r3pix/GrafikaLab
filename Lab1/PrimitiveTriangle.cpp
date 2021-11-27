@@ -19,9 +19,9 @@ PrimitiveTriangle::PrimitiveTriangle(int x, int y, int x1, int y1, sf::Color col
 void PrimitiveTriangle::draw(sf::RenderWindow* target) {
 
 	img.create(target->getSize().x, target->getSize().y, sf::Color::Transparent);
-	drawLine(img, x0, y0, x2, y2);
-	drawLine(img, x2, y2, x1, y1);
-	drawLine(img, x1, y1, x0, y0);
+	drawLine(img, position.x + x0,position.y+ y0, position.x + x2, position.y + y2);
+	drawLine(img, position.x + x2, position.y + y2, position.x + x1, position.y + y1);
+	drawLine(img, position.x + x1, position.y + y1, position.x + x0, position.y + y0);
 	txt.loadFromImage(img);
 	arr.setTexture(txt);
 	arr.setPosition(sf::Vector2f(0, 0));
@@ -42,6 +42,7 @@ void PrimitiveTriangle::draw(sf::RenderWindow* target, sf::Color color) {
 }
 void PrimitiveTriangle::translate(int x, int y)
 {
+	position = sf::Vector2f(x + position.x, y + position.y);
 }
 void PrimitiveTriangle::rotate(float rotation)
 {

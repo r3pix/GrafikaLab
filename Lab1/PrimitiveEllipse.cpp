@@ -24,10 +24,10 @@ void PrimitiveEllipse::draw(sf::RenderWindow* target, sf::Color color) {
 		x = std::ceil(x0 * cos(a));
 		y = std::ceil(y0 * sin(a));
 
-		prim.drawPoint(img, x0 + x, y0 + y, this->color);
-		prim.drawPoint(img, x0 - x, y0 - y, this->color);
-		prim.drawPoint(img, x0 + x, y0 - y, this->color);
-		prim.drawPoint(img, x0 - x, y0 + y, this->color);
+		prim.drawPoint(img, position.x + x0 + x, position.y + y0 + y, this->color);
+		prim.drawPoint(img, position.x+ x0 - x, position.y + y0 - y, this->color);
+		prim.drawPoint(img, position.x+ x0 + x, position.y + y0 - y, this->color);
+		prim.drawPoint(img, position.x+ x0 - x, position.y + y0 + y, this->color);
 
 	}
 	//domalowanie dziur
@@ -76,6 +76,7 @@ void PrimitiveEllipse::draw(sf::RenderWindow* target)
 }
 void PrimitiveEllipse::translate(int x, int y)
 {
+	position = sf::Vector2f(x + position.x, y + position.y);
 }
 
 void PrimitiveEllipse::rotate(float rotation)

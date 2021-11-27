@@ -4,10 +4,19 @@
 #include "PrimitiveSquere.h"
 #include "UpdatableObject.h"
 #include "ShapeObject.h"
-class Player : public PrimitiveSquere,public UpdatableObject
+#include "SpriteObject.h"
+enum class Kierunek { left, right, up, down };
+class Player : public SpriteObject,public UpdatableObject,public ShapeObject
 {
 public:
-	Player(int x, int y,int x1,int y1,sf::Color color)  :PrimitiveSquere(x, y, x1, y1,color){}
-		void update();
+	int fps;
+	void translate(int x,int y) ;
+	void rotate(float k);
+	void scale(float rotation);
+	Kierunek kierunek = Kierunek::up;
+	void update();
+	void animate(float dt);
+	int index = 0;
+	void draw(sf::RenderWindow* target);
 };
 

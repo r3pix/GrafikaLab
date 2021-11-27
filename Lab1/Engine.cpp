@@ -9,6 +9,7 @@
 #include "PrimitiveEllipse.h"
 #include "PrimitiveTriangle.h"
 #include "Player.h"
+#include "BitmapHandler.h"
 Engine::Engine(std::string title, int width, int height)
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(width,height),title);
@@ -53,11 +54,32 @@ std::vector<LineSegment> lines = { line, line1, line2 };
 
 std::vector<LineSegment> figure = { line, line1, line2, line3 };
 */
-
+auto Engine::getCurrentTime()
+{
+	return std::chrono::steady_clock::now();
+}
 void Engine::run()
 {
-	
-	Player player(100, 100, 300, 300, sf::Color::White);
+	auto tp = getCurrentTime();
+	Player player;
+	player.back.push_back(BitmapHandler::getImageFromFile("Image/13.png"));
+	player.back.push_back(BitmapHandler::getImageFromFile("Image/14.png"));
+	player.back.push_back(BitmapHandler::getImageFromFile("Image/15.png"));
+	player.back.push_back(BitmapHandler::getImageFromFile("Image/16.png"));
+	player.front.push_back(BitmapHandler::getImageFromFile("Image/9.png"));
+	player.front.push_back(BitmapHandler::getImageFromFile("Image/10.png"));
+	player.front.push_back(BitmapHandler::getImageFromFile("Image/11.png"));
+	player.front.push_back(BitmapHandler::getImageFromFile("Image/12.png"));
+	player.left.push_back(BitmapHandler::getImageFromFile("Image/5.png"));
+	player.left.push_back(BitmapHandler::getImageFromFile("Image/6.png"));
+	player.left.push_back(BitmapHandler::getImageFromFile("Image/7.png"));
+	player.left.push_back(BitmapHandler::getImageFromFile("Image/8.png"));
+	player.right.push_back(BitmapHandler::getImageFromFile("Image/1.png"));
+	player.right.push_back(BitmapHandler::getImageFromFile("Image/2.png"));
+	player.right.push_back(BitmapHandler::getImageFromFile("Image/3.png"));
+	player.right.push_back(BitmapHandler::getImageFromFile("Image/4.png"));
+
+
 	try
 	{
 		PrimitiveRenderer prim;
@@ -68,7 +90,12 @@ void Engine::run()
 				if (event.type == sf::Event::Closed)
 					this->window->close();
 			}
-
+			float dt;
+			{
+				const auto new_tp = std::chrono::steady_clock::now();
+				dt = std::chrono::duration<float>(new_tp - tp).count();
+				tp = new_tp;
+			}
 			clear();
 			//prim.drawCustomCircle(this->window, 600, 200, 50);
 			
@@ -102,6 +129,7 @@ void Engine::run()
 			squere.draw(this->window);*/
 			
 			player.update();
+			player.animate(dt);
 			player.draw(window);
 			this->window->display();
 

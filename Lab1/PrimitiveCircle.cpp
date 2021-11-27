@@ -78,6 +78,7 @@ void PrimitiveCircle::draw(sf::RenderWindow* target)
 }
 void PrimitiveCircle::translate(int x, int y)
 {
+	position = sf::Vector2f(x + position.x, y + position.y);
 }
 
 void PrimitiveCircle::rotate(float rotation)
